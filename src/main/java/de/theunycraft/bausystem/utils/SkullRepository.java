@@ -1,0 +1,140 @@
+package de.theunycraft.bausystem.utils;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+public class SkullRepository {
+
+    @Getter
+    @AllArgsConstructor
+    public enum getAlphabetSkulls {
+        A_QUARTZ("", ""),
+        B_QUARTZ("", ""),
+        C_QUARTZ("", ""),
+        D_QUARTZ("", ""),
+        E_QUARTZ("", ""),
+        F_QUARTZ("", ""),
+        G_QUARTZ("", ""),
+        H_QUARTZ("", ""),
+        I_QUARTZ("", ""),
+        J_QUARTZ("", ""),
+        K_QUARTZ("", ""),
+        L_QUARTZ("", ""),
+        M_QUARTZ("", ""),
+        N_QUARTZ("", ""),
+        O_QUARTZ("", ""),
+        P_QUARTZ("", ""),
+        Q_QUARTZ("", ""),
+        R_QUARTZ("", ""),
+        S_QUARTZ("", ""),
+        T_QUARTZ("", ""),
+        U_QUARTZ("", ""),
+        V_QUARTZ("", ""),
+        W_QUARTZ("", ""),
+        X_QUARTZ("", ""),
+        Y_QUARTZ("", ""),
+        Z_QUARTZ("", ""),
+
+        A_WOOD("", ""),
+        B_WOOD("", ""),
+        C_WOOD("", ""),
+        D_WOOD("", ""),
+        E_WOOD("", ""),
+        F_WOOD("", ""),
+        G_WOOD("", ""),
+        H_WOOD("", ""),
+        I_WOOD("", ""),
+        J_WOOD("", ""),
+        K_WOOD("", ""),
+        L_WOOD("", ""),
+        M_WOOD("", ""),
+        N_WOOD("", ""),
+        O_WOOD("", ""),
+        P_WOOD("", ""),
+        Q_WOOD("", ""),
+        R_WOOD("", ""),
+        S_WOOD("", ""),
+        T_WOOD("", ""),
+        U_WOOD("", ""),
+        V_WOOD("", ""),
+        W_WOOD("", ""),
+        X_WOOD("", ""),
+        Y_WOOD("", ""),
+        Z_WOOD("", "");
+
+        private String name;
+        private String base64;
+    }
+
+    @Getter
+    @AllArgsConstructor
+    public enum getBlocks {
+        //------ PRESENTS ------//
+        PRESENT_WHITE("Present White", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODNmZWY2MjY2N2ZiMDQ4Y2NiOTk3YjBmZGUzNTUzZmQ0ZWZmYjFjNmQ4ZGJlOWNhYmM3ZTNkNWE4OGViYTViYSJ9fX0="),
+        PRESENT_GRAY("Present Gray", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTBjNTdjYzZiYWVmMDJlZmEwYzVhZWQ2MDZmMzUyNTFjZjU0MmFmYmJjZmYyN2M0NTY0OTdmMDQ2MDFkYWEyYSJ9fX0="),
+        PRESENT_RED("Present Red", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjFiYzlkNDJiMDA0MWU4Zjk1Y2I5YjI2NjI4ZmRhZjUwY2QwZTM2ZjdiYjlkNmIzYTRkMmFmMzk0OWRhOTdkNiJ9fX0="),
+        PRESENT_BLUE("Present Blue", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTQzZTBmNzNkOGY0NDdhNTczZjMzMjI2ZmU0Zjk2ODNiNjRkZGE0MmU3MTQyYzEzMGI1YjMzYzI5ZjE2MDE4MyJ9fX0="),
+        PRESENT_GREEN("Present Green", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmIxZWM3ZGM3NTMwNjFjYTE3NDQyNGVhNDVjZjk0OTBiMzljZDVkY2NhNDc3ZDEzOGE2MDNlNmJlNzU1ZWM3MiJ9fX0="),
+        PRESENT_GREEN_OPENED("Present Green Opened", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2FhMDNmODE3MzQxY2FhNTZmYmZjNmQzZjI4MTFhZGI5ODliNjExNzgxMTYyYzEyYWY0YzU4YWYxOGM1M2M3MiJ9fX0="),
+        //------ CHESTS ------//
+        //------ SAFES ------//
+        SAFE("Safe", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzA4OGI1MWE5ZDU4MWVkZjA3NjExNjQ3NDM1N2NkY2JiNDg1ZjAyMmIxMDkwYjdlMmJlNjE3MGU2ZmE2MDBkZSJ9fX0="),
+        SAFE_GOLD("Safe Gold", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjc1MDVjYjQ1YTBkZmM0ZWMwYjc0MWFkYmNlNmI1MDU2ZWQ1MWFiYTYzZmVhOWIyZDY2ZDc1OGNhYzBmMjQxMiJ9fX0="),
+        SAFE_DIAMOND("Safe Diamond", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTQ2Mzg1MDNjYmM0MGNiYmE1ZmRkMDQwYTUzN2JlMzQwZWEzYzQzYWFlNjZkNWZhMmYyYjUzNGMxZjYyOTE2YiJ9fX0="),
+        //------ EXIT SIGNS ------//
+        EXIT_SIGN_LEFT("Exit Sign Left", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDNjNjY4N2QxZmRjMjAwMDBjZWI2NTJkZGIwMjY4YTIzMDk0NjFlM2UzZDQ2YzQyNWZlNzE4OGIxNWE1MDAxOSJ9fX0="),
+        EXIT_SIGN_RIGHT("Exit SIgn Right", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIyMjIxYmU2YjJlMjg5ZTA2MDc4MDM5NjRkNzU0Y2ZiNGVjNWNhNzIxNzZmYTViZThlMTY5YzJkMDM5NjJkMiJ9fX0="),
+        //------ COMPUTERS ------//
+        COMPUTER_OLD_WHITE("Computer", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjYwZDk1NDBhMmYzYjM5ODc0ZWVkYWQzOGFmNWIzNWQ2MGQ3OGUwNGM5OWYyNDNkZDhiNmZhNmVkYzhjZWU4NCJ9fX0="),
+        MONITOR_BLACK("Monitor Black", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWVlZjc1MjU0MDM2NTVjNWZlZmI4MzZiN2VhZjJhODg1Y2IyNTY5Yjg2ZDdlZmVhZjhiMGYzNDI2ZWYyMTljYyJ9fX0="),
+        MONITOR_PINK("Monitor", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGQyN2E5MjFjNjdkOGUyMmRkZjE5OTU5ZmZkOWI1NTU1OTc4YTVjMWVmNjYwMWUzYTA4MTA1ZGQxYTVjNGRkOCJ9fX0="),
+        //------ CHESTS ------//
+        ORNATE_CHEST("Ornate Chest", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2I3YWVhZDA0NmEzZjk5YmQyMWI5ODdhMDU3YmEwNTU1YjVjZTg3ODczNjFhNmJjY2JjYjM1MGRkM2QxMjZlYiJ9fX0="),
+        LIVING_CHEST("Living Chest", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODRmMzc0ZTBkMzA0OTE5ZDVlOWMzZmE4NDAxYTNjMDg3ZWJhOGJhZWUyNTRjYjE1NTZiZjgxN2ZhZWRmOWFiZSJ9fX0="),
+        //------ CORN CABS ------//
+        CORN_CAB("Corn Cob", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGYxNWFkZDY4MDljYjFlMmM3MTM5MTBlZDE3YzJmOTAwM2M4MjFmNTU2NDI4Y2YzMGU2NWE0OWE5YzYyMmUxMSJ9fX0="),
+        CORN_BAB_LYE("Corn Cab", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTM4MTZkMjM4ZWMzNDllYzM1NjJmMmYwMmRkOGU4YmYyZGViNWU2MzIxMGIyZjFhNzk1OGUxMDBkY2I1OTA0MyJ9fX0="),
+        CORN("Corn", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDNhNmIwOTljZDQwMWUzYTBkNjRkOWExNmY0NmNkMGM1Y2E1ZjdlNDVlNmE2OWMyN2QyZTQ3Mzc3NWIyNWZlIn19fQ=="),
+        //------ OTHERS ------//
+        EMPTY_BUCKET("Empty Bucket", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2EyOGI4Zjk1MWE0MDc2OTlmYWVmYTJlNjQ4YmEwMGE5MzBiZjFlNjViMDdjZTNkZDBjNzMzNDAwOTljMTMzOSJ9fX0="),
+        HONEY_JAR("Honey Jar", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDhlY2Q2MzYxNTA4MzdiMGQ5ZDAyOTliNjRjZDBiNWI1NWE2Zjk5MTU4Yzk0NjAwZWI5MGZjNWJhNjc3MzMwZCJ9fX0="),
+        JACK_O_LANTERN("Jack o Lantern", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzM3N2ZhZjYxYzFhNjRhODYzMDZkOGViMWVmNWZhNWNhOTdjNTJlOTI5ZmIyYTQxMDIxZjRmMWZmODQ0MjM3OSJ9fX0="),
+        GRAY_WALL_LAMP("Wall Lamp", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjJmZjg3MDcwN2QyOTk2OWFjY2VjNTg0MmNjYmUxMmNiNjhkMjkwYjk0YmNhZGI5MTNjMmY0YTkzOGU4Yzk0MiJ9fX0="),
+        EYE("Eye", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWRiOTU3MzdjMmIzOTY1M2RkNzMxOTFlMWY4YTkxMDBiMjFlMjI2OWJjODg4Y2VhZGE4YjExODc4YTkyZGUwMCJ9fX0="),
+        CHOCOLATE("Chocolate", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2MxYjM1MzVkYjNhYmJmMTVlOTA4NzNmNTQyMzNjZDdjMGZmYWE1NDk0ZWJmZDhlOThiMGRiZDZhMTQzYjY2YyJ9fX0=");
+
+        private String name;
+        private String base64;
+    }
+
+    @Getter
+    @AllArgsConstructor
+    public enum getSkulls {
+        GRINCH("Grinch", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJhYzdjMjhiZDBkMDQyMjM4MzlhN2Q3YzM4MzQ0Y2Y1YTU0NGZhMTY0M2M1YTUxZjllODQ2MDQ2NThjNjcifX19"),
+        PAPER_BAG_MASK("Paper Bag", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDEyNzM4NWNiN2U0YzY5NTA2ZWVjMjAxYWZmZDQ2MTZmZjVlYzk0ODBjZjQ3YWFjOTE0NGI2MTE2MmU3ZTZhZSJ9fX0="),
+        ROBOT_BLUE_BLACK("Robot", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg4M2MzYzIxZmUzYjQ3ZTk4ODQwMDJlNzAzMjg0NDkzZGU2MjNkNTgxNTFlYWI0ZDhkMjljYTk0OGY3YjFkMiJ9fX0="),
+        ROBOT_BIG_YELLOW_EYE("Robot", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjZlNWU0NjE3ZWI3NTExMjY5OTliOTQ3MDMxODgwZjVjYmZlYjBhZDZjZWI4Zjk2OTkyYmNlM2U4ZWIzOWQ4In19fQ=="),
+        KNIGHT_HELMET_BLACK("Knight Helmet", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhiMGYwMTYzMzM0ODY3YzVmNTdjZTA4YzYzMTU0ODM0NmRlM2Y3YWVkYjcyMWI3YTYyZjQ2NGVhYjRjM2NhYyJ9fX0="),
+        KNIGHT_HELMET_RED("Knight Helmet", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmUyYzNhNjcwYTg5MWE5MzAzYWYyY2U2MWI5NTA3NjhhNTFjMjYzZDE3MDNjMTJkYjJhMmNiOGNmNDk0YWViMCJ9fX0="),
+        SOLIDER_RAINBOW("Solider", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMThlMDY0NDc0MjNlYWZjMjc3YjQ5ODRkZmVhZTU5NTZhZDVhNjU5ODdmYzc3OTkwYWZlNWRhNjgzNjdiMTk3ZiJ9fX0="),
+        SOLIDER_WHITE("Solider", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMThlMDY0NDc0MjNlYWZjMjc3YjQ5ODRkZmVhZTU5NTZhZDVhNjU5ODdmYzc3OTkwYWZlNWRhNjgzNjdiMTk3ZiJ9fX0="),
+        SOLIDER_CYAN("Solider", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODc1NjVlYTBkZDFhYjkzNjNiMWIyMzNhOWFkOGQ0NmE2NzRjOTc1OTFkZjM0MTI3MDY4NWQwNGYzY2NjYThmNyJ9fX0="),
+        CHEFS_HAT("Chefs hat", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjNjMmUzOTJkNGY5NjlkMmYwMjhjMTY3MGVhOThmNTYxNmY5NmJlOWVjNzM1M2VjNmEyZmFmOTRlNWQ1NTQ4YiJ9fX0=");
+
+        private String name;
+        private String base64;
+    }
+
+    @Getter
+    @AllArgsConstructor
+    public enum getPlushies {
+        SNOWMAN("Snowman", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTFlYTUxYTM4YzkxZmUzOWU4YjhjZGViOTc4NWRlOGMxMTRmNTJkMzk5ZGM4YTc1NTlkZjJkNjFmOTcxYTA4NyJ9fX0="),
+        SNOWMAN_2("Snowman", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2UxZWEyNDNlNGEwOWI0ZTRkZTg0YmVlM2EzYWY2NDA5ZmIwNTk3ZjM3ODg4MDI1ODllYjhiZGE5MjBjM2E1ZiJ9fX0="),
+        GRINCH("Grinch", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGY0Mzk5NDI5ZTVlNjliZjY0OTZjOTZmMWM0MGJmMjg5YTFkODNkN2Y1ZDc0NmQ2M2FjMzQ4ZmJhMWRlMDcxOCJ9fX0="),
+        ASTRONOUT("Astronaut", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzI4MjA3ZjZmMTMwOWVhMzI0YzdkMTlkMzFmNDEzMTI5OThlNTJmZGZmYWMwMzRhOThlMjY1ZWExYmQwODA5YiJ9fX0="),
+        GHOSTFACE("Ghostface", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzRhYmI3MjdmMjgyMzUwZDEwYjkwMGE2OWNhYTQxYjk0MzI4MTI5ZWVjNDBiZTc3NzJhN2I3NDQ3OTU5NmM5MSJ9fX0=");
+
+        private String name;
+        private String base64;
+    }
+}

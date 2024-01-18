@@ -1,0 +1,4 @@
+name: BauSystem
+version: '${project.version}'
+main: de.theunycraft.bausystem.BauSystem
+api-version: '1.20'

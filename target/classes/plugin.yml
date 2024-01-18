@@ -1,0 +1,4 @@
+name: BauSystem
+version: '1.0-SNAPSHOT'
+main: de.theunycraft.bausystem.BauSystem
+api-version: '1.20'
