@@ -1,5 +1,6 @@
 package de.theunycraft.bausystem.gui;
 
+import de.theunycraft.bausystem.BauSystem;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -7,20 +8,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.checkerframework.checker.units.qual.C;
+import org.bukkit.metadata.FixedMetadataValue;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class SkullRepoGUI  implements Listener {
+public class SkullRepoGUI implements Listener {
     private static Inventory inventory;
     private static Inventory alphabetPage1;
     private static Inventory alphabetPage2;
     private static Inventory alphabetPage3;
+    private static ItemStack alphabet;
+    private static ItemStack nextButton;
+    private static ItemStack backButton;
 
     public static void openGUI(Player player) {
         inventory = Bukkit.createInventory(null, 54, Component.text("SkullRepo"));
@@ -31,12 +34,13 @@ public class SkullRepoGUI  implements Listener {
         for (int i = 0; i < 20; i++) inventory.setItem(i, placeholder);
         for (int i = 25; i < 29; i++) inventory.setItem(i, placeholder);
         for (int i = 34; i < 54; i++) inventory.setItem(i, placeholder);
-        ItemStack alphabet = new ItemStack(Material.PLAYER_HEAD, 1);
+        alphabet = new ItemStack(Material.PLAYER_HEAD, 1);
         ItemMeta alphabetItemMeta = alphabet.getItemMeta();
         alphabetItemMeta.displayName(Component.text("Alphabet"));
         alphabet.setItemMeta(alphabetItemMeta);
         inventory.setItem(20, alphabet);
         player.openInventory(inventory);
+        player.setMetadata("OpenedMenu", new FixedMetadataValue(BauSystem.getInstance(), inventory));
     }
 
     public static void openAlphabetPage1(Player player) {
@@ -64,16 +68,54 @@ public class SkullRepoGUI  implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
+        ItemStack itemStack = event.getCurrentItem();
         if (event.getView().title().equals(Component.text("SkullRepo"))) {
-            if (event.getCurrentItem().displayName().equals(Component.text("Alphabet"))) {
+            if (event.getSlot() == 20) {
+                event.setCancelled(true);
                 player.closeInventory();
                 openAlphabetPage1(player);
             }
-            event.setCancelled(true);
+            if (itemStack.getType() == Material.BLUE_STAINED_GLASS_PANE) event.setCancelled(true);
         } else if (event.getView().title().contains(Component.text("SkullRepo - "))) {
-            player.getInventory().addItem(event.getCurrentItem());
+            if (event.getSlot() == 53 || event.getSlot() == 45) {
+                if (event.getInventory() == alphabetPage1) {
+                    if (event.getSlot() == 53) {
+                        event.setCancelled(true);
+                        player.closeInventory();
+                        openAlphabetPage2(player);
+                    }
+                } else if (event.getInventory() == alphabetPage2) {
+                    if (event.getSlot() == 45) {
+                        event.setCancelled(true);
+                        player.closeInventory();
+                        openAlphabetPage1(player);
+                    } else if (event.getSlot() == 53) {
+                        event.setCancelled(true);
+                        player.closeInventory();
+                        openAlphabetPage3(player);
+                    }
+                } else if (event.getInventory() == alphabetPage3) {
+                    if (event.getSlot() == 45) {
+                        event.setCancelled(true);
+                        player.closeInventory();
+                        openAlphabetPage2(player);
+                    }
+                }
+            } else {
+                if (itemStack != null)
+                player.getInventory().addItem(itemStack);
+                event.setCancelled(true);
+            }
             event.setCancelled(true);
         }
+        event.setCancelled(true);
+        if (itemStack.getType() == Material.BLUE_STAINED_GLASS_PANE) event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onClose(InventoryCloseEvent event) {
+        Player player = (Player) event.getPlayer();
+        if (player.hasMetadata("OpenedMenu")) player.removeMetadata("OpenedMenu", BauSystem.getInstance());
     }
 
     public static void fillBorder(Inventory inventory) {
@@ -86,20 +128,31 @@ public class SkullRepoGUI  implements Listener {
         toFill.add(17);
         toFill.add(26);
         toFill.add(35);
-        toFill.add(34);
+        toFill.add(44);
         for (int i = 0; i < 53; i++) {
-            if (i < 10 || i > 46) inventory.setItem(i, placeholder);
+            if (i < 10 || i > 45) inventory.setItem(i, placeholder);
             if (toFill.contains(i)) inventory.setItem(i, placeholder);
         }
-        ItemStack nextButton = new ItemStack(Material.PLAYER_HEAD);
-        ItemStack backButton = new ItemStack(Material.PLAYER_HEAD);
-        if (inventory.equals(inventory)) return;
-        if (inventory.equals(alphabetPage1)) inventory.setItem(54, nextButton);
+        nextButton = new ItemStack(Material.PLAYER_HEAD);
+        ItemMeta nextButtonItemMeta = nextButton.getItemMeta();
+        nextButtonItemMeta.displayName(Component.text("Next"));
+        nextButton.setItemMeta(nextButtonItemMeta);
+        backButton = new ItemStack(Material.PLAYER_HEAD);
+        ItemMeta backButtonItemMeta = backButton.getItemMeta();
+        backButtonItemMeta.displayName(Component.text("Back"));
+        backButton.setItemMeta(backButtonItemMeta);
+        if (inventory.equals(alphabetPage1)) {
+            inventory.setItem(45, placeholder);
+            inventory.setItem(53, nextButton);
+        }
         if (inventory.equals(alphabetPage2)) {
             inventory.setItem(45, backButton);
-            inventory.setItem(54, nextButton);
+            inventory.setItem(53, nextButton);
         }
-        if (inventory.equals(alphabetPage3)) inventory.setItem(54, nextButton);
+        if (inventory.equals(alphabetPage3)) {
+            inventory.setItem(45, backButton);
+            inventory.setItem(53, placeholder);
+        }
 //        inventory.setItem(45, backButton);
 //        inventory.setItem(54, nextButton);
     }
